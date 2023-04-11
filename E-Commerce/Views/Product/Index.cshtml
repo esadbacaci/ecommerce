@@ -1,0 +1,97 @@
+﻿@using EntityLayer.Concrete
+@model List<Product>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="content-wrapper">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Ürün Listesi</h4>
+			<p class="card-description">
+				Ürünlerinizin listesi aşağıdadır.
+			</p>
+			<div class="table-responsive">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>
+								Ürün ID
+							</th>
+							<th>
+								Ürün Ad
+							</th>
+							<th>
+								Ürün Açıklama
+							</th>
+							<th>
+								Ürün Fiyat
+							</th>
+							<th>
+								Ürün Renk
+							</th>
+							<th>
+								Ürün Stok
+							</th>
+							<th>
+								Ürün Giriş Tarih
+							</th>
+							<th>
+								Ürün Durum
+							</th>
+							<th>
+								Ürün Görsel
+							</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr>
+
+								<td>
+									@item.ProductID
+								</td>
+								<td>
+									@item.ProductName
+								</td>
+								<td>
+									@item.ProductDescription
+								</td>
+								<td>
+									@item.ProductPrice TL
+								</td>
+								<td>
+									@item.ProductColor
+								</td>
+								<td>
+									@item.ProductStock
+								</td>
+								<td>
+									@(((DateTime)item.ProductCreateDate).ToString("dd-MMM-yyy"))
+								</td>
+								<td>
+									@item.ProductStatus
+								</td>
+							
+								<td class="py-1">
+									<img src="@item.ProductImage" alt="image" />
+								</td>
+								
+								<td><a href="/Product/DeleteProduct/@item.ProductID" class="btn btn-danger"> Sil</a></td>
+								
+							</tr>
+
+						}
+
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+
+

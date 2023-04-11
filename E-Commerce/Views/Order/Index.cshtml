@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Sipariş Tablosu</h4>
+            <p class="card-description">
+                Siparişlerinizin durumu aşağıdaki gibidir.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Product</th>
+                            <th>Sale</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>Photoshop</td>
+                            <td class="text-danger"> 28.76% <i class="ti-arrow-down"></i></td>
+                            <td><label class="badge badge-danger">Pending</label></td>
+                            <td> <button type="button" class="btn btn-outline-success btn-fw">Onayla</button></td>
+                            <td> <button type="button" class="btn btn-outline-dark btn-fw">Detay</button></td>
+                        </tr>
+                        <tr>
+                            <td>Messsy</td>
+                            <td>Flash</td>
+                            <td class="text-danger"> 21.06% <i class="ti-arrow-down"></i></td>
+                            <td><label class="badge badge-warning">In progress</label></td>
+                            <td> <button type="button" class="btn btn-outline-success btn-fw">Onayla</button></td>
+                            <td> <button type="button" class="btn btn-outline-dark btn-fw">Detay</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

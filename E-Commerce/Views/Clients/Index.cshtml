@@ -1,0 +1,43 @@
+﻿@using EntityLayer.Concrete
+@model List<AppUser>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="content-wrapper">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Müşteri Tablosu</h4>
+            <p class="card-description">
+                Müşterilerin durumu aşağıdaki gibidir.
+            </p>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>Ad Soyad</th>
+                            <th>Mail</th>
+                            <th>Telefon No</th>
+                            <th></th>
+                          
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.OrderBy(x=>x.NameSurname))
+                        {
+                            <tr>
+                                <td>@item.NameSurname</td>
+                                <td>@item.Email</td>
+                                <td> @item.PhoneNumber</td>
+                                <td> <button type="button" class="btn btn-outline-dark btn-fw">Detay</button></td>
+
+                            </tr>
+                        }
+                     
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

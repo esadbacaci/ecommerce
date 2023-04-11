@@ -1,0 +1,70 @@
+﻿@model EntityLayer.Concrete.Product
+@{
+	ViewData["Title"] = "AddProduct";
+	Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<div class="content-wrapper">
+	<div class="card">
+		<div class="card-body">
+			<h4 class="card-title">Ürün Ekle</h4>
+			<p class="card-description">
+				Eklemek istediğiniz ürünü aşağıya giriniz.
+			</p>
+			<form method="post" class="forms-sample" asp-action="AddProduct" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="exampleInputName1">Ürün Adı</label>
+					<input name="ProductName" type="text" class="form-control" placeholder="Ad"required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputEmail3">Ürün Açıklaması</label>
+					<input name="ProductDescription" type="text" class="form-control" placeholder="Açıklama" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword">Ürün Fiyatı</label>
+					<input name="ProductPrice" type="text" class="form-control" placeholder="Fiyat" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword4">Ürün Rengi</label>
+					<input name="ProductColor" type="text" class="form-control" placeholder="Renk" required>
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword4">Ürün Stok</label>
+					<input name="ProductStock" type="text" class="form-control" placeholder="Stok"required>
+				</div>
+
+				<div class="form-group">
+					<label for="CategoryID">Ürün Kategoriler</label>
+					<select id="CategoryID" name="CategoryID" class="form-control" required>
+						@foreach (var item in ViewBag.cv)
+						{
+							<option value="@item.Value">@item.Text</option>
+						}
+					</select>
+				</div>
+
+
+				<div class="form-group">
+					<label>Görsel Ekle</label>
+					<br />
+					<input class="file-upload-browse btn btn-secondary" name="ProductImage" type="file" style="display: none;">
+					<button class="btn btn-primary mr-2" type="button" onclick="document.querySelector('input[name=ProductImage]').click()">Dosya Seç</button>
+					<div id="file-name"></div>
+				</div>
+				<button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+				<button class="btn btn-light">Vazgeç</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+	document.querySelector('input[name=ProductImage]').addEventListener('change', function () {
+		var fileName = this.value.split('\\').pop();
+		document.querySelector('#file-name').textContent = fileName;
+	});
+</script>
+
+
+
+
+
